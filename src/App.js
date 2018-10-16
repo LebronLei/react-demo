@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+
+import  styles  from './style/index.js'
+
+const setStyle = {
+    fontSize: '40px',
+    color:'red',
+   }
 
 class App extends Component {
     // getInitialState() {
@@ -14,18 +21,24 @@ class App extends Component {
         
     // };
     counstructor(props) {
-        this.state = {
-            fontSize:'40px'
-        }
     }
 
-    componentWillMount() {
-        console.log(1111)
-    }
+    // componentWillMount() {
+    //     console.log(1111)
+    // }
 
     componentWillMount() {
         console.log(222)
+        setTimeout(() => {
+            console.log(333,styles)
+        },1111)
     }
+
+    clickOne() {
+        console.log('click one')
+    }
+
+   
 
 
   render() {
@@ -33,7 +46,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <p className='item'>
+                <p onClick={this.clickOne} style={styles.Header}>
             Edit <code>src/App.js</code> and save to reload.
           </p>
           {/* <a
