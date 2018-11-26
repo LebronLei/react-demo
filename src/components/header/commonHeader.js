@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './commonHeader.scss';
-import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Button} from 'antd-mobile';
 
 class CommonHeader extends Component{
 
@@ -11,9 +11,11 @@ class CommonHeader extends Component{
     render() {
         return (
             <div className='commonHeader'>
-                <div className="left">left </div>
-                <Button type="primary">primary</Button>
-                <div className="center">title</div>
+                <div className="left">
+               <i className="iconfont">&#xe606;</i>
+                </div>
+                {/* <Button type="primary">primary</Button> */}
+                <div className="center">我的成就</div>
                 <div className="right">right</div>
             </div>
         )

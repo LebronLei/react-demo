@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
+// 引入antd-mobile UI框架样式
+import 'antd-mobile/dist/antd-mobile.css';
+
+// 引入confront
+import './assets/style/index.scss';
+
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// 引入viewport
+// import './utils/viewport.min.js';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -1,7 +1,18 @@
 .commonHeader {
-    color: red;
     display: flex;
     justify-content: space-between;
+    height: 45px;
+    line-height: 45px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: 0;
+    top: 0;
+    background: #fff;
+    // font-size: 20px;
+    font-size: 0.17rem;
+    color: #5C49B2;
+
 
     .left {
         color: blue;
