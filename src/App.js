@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-import  styles  from './style/index.js'
+import styles from './style/index.js';
 
-const setStyle = {
-    fontSize: '40px',
-    color:'red',
-   }
+import CommonHeader from './components/header/commonHeader';
+
+// const setStyle = {
+//     fontSize: '40px',
+//     color:'red',
+//    }
 
 class App extends Component {
     // getInitialState() {
@@ -43,7 +45,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+        <div className="App">
+            <CommonHeader></CommonHeader>
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
                 <p onClick={this.clickOne} style={styles.Header}>
