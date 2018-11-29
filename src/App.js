@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 import styles from './style/index.js';
+import {HashRouter,Route} from "react-router-dom"
 
 import CommonHeader from './components/header/commonHeader';
+// import friendMessage from './pages/userCenter/friendMessage';
 
 // const setStyle = {
 //     fontSize: '40px',
@@ -50,8 +52,27 @@ class App extends Component {
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
                 <p onClick={this.clickOne} style={styles.Header}>
-            Edit <code>src/App.js</code> and save to reload.
+                    Edit <code>src/App.js</code> and save to reload.
+                            
           </p>
+                <a href='#/friendMessage/'>A标签方式跳转</a>
+                
+                <div onClick={() =>
+                    this.props.history.push({
+                 
+
+                    pathname: '/friendMessage/',
+                        query: {
+                            id: 3
+                        }
+                    })
+                }>push-query方式跳转</div>
+
+                <div onClick={()=>this.props.history.push({pathname:'/friendMessage',state:{id:5555}})}>push-state方式跳转</div>
+
+                {/* <HashRouter> */}
+                    {/* <Route path='/friendMessage' component={friendMessage}></Route> */}
+                {/* </HashRouter> */}
           {/* <a
             className="App-link"
             href="https://reactjs.org"
