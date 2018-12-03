@@ -1,20 +1,31 @@
 .commonHeader {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     height: 45px;
     line-height: 45px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: 0;
-    top: 0;
     background: #fff;
     // font-size: 20px;
     font-size: 0.17rem;
     color: #5C49B2;
+    position: relative;
 
 
     .left {
         color: blue;
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 50px;
+        text-align: left;
+        display: flex;
+        align-items: center;
     }
+
+    .center {
+        font-size: 17px;
+        color: #5C49B2;
+
+    }
+
 }

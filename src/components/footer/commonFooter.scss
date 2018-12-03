@@ -1,0 +1,44 @@
+.commonFooter {
+    display: flex;
+    justify-content: center;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    background: #fff;
+    // font-size: 20px;
+    font-size: 0.17rem;
+    color: #5C49B2;
+    position: relative;
+
+
+    a {
+        width: 20%;
+
+        .list {
+            display: flex;
+            flex-direction: column;
+
+            &.center {
+                .iconfont {
+                    font-size: 0.24rem;
+                    height: 0.5rem;
+                    line-height: 0.5rem;
+                }
+            }
+
+            .iconfont {
+                height: 0.25rem;
+                line-height: 0.25rem;
+                font-size: 0.14rem;
+
+            }
+
+            .name {
+                height: 0.25rem;
+                line-height: 0.25rem;
+                font-size: 0.1rem;
+                color: #5C49B2;
+            }
+        }
+    }
+
+}

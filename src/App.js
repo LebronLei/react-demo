@@ -6,6 +6,7 @@ import styles from './style/index.js';
 import {HashRouter,Route} from "react-router-dom"
 
 import CommonHeader from './components/header/commonHeader';
+import CommonFooter from './components/footer/commonFooter';
 // import friendMessage from './pages/userCenter/friendMessage';
 
 // const setStyle = {
@@ -13,7 +14,7 @@ import CommonHeader from './components/header/commonHeader';
 //     color:'red',
 //    }
 
-class App extends Component {
+class App extends React.Component {
     // getInitialState() {
     //     return {
     //         styles: {
@@ -24,7 +25,15 @@ class App extends Component {
     //     }
         
     // };
-    counstructor(props) {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name:'2222',
+            headerData:{
+                icon: '',
+                title:'我的成就',
+            }
+        }
     }
 
     // componentWillMount() {
@@ -48,7 +57,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-            <CommonHeader></CommonHeader>
+            <CommonHeader headerData={this.state.headerData}></CommonHeader>
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
                 <p onClick={this.clickOne} style={styles.Header}>
@@ -81,7 +90,8 @@ class App extends Component {
           >
             Learn React
           </a> */}
-        </header>
+            </header>
+            <CommonFooter></CommonFooter>
       </div>
     );
   }

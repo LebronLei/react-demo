@@ -4,8 +4,12 @@ import { Button} from 'antd-mobile';
 
 class CommonHeader extends Component{
 
+    // constructor(props) {
+    //     super(props);
+    // }
+
     componentWillMount() {
-        console.log(888)
+        console.log(888,this.props)
     }
 
     render() {
@@ -15,8 +19,8 @@ class CommonHeader extends Component{
                <i className="iconfont">&#xe606;</i>
                 </div>
                 {/* <Button type="primary">primary</Button> */}
-                <div className="center">我的成就</div>
-                <div className="right">right</div>
+                <div className="center">{this.props.headerData.title}</div>
+                <div className="right"></div>
             </div>
         )
     }
