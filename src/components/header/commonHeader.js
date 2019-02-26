@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
 import './commonHeader.scss';
-import { Button} from 'antd-mobile';
+import { Button } from 'antd-mobile';
 
-class CommonHeader extends Component{
-
+class CommonHeader extends Component {
     // constructor(props) {
     //     super(props);
     // }
 
     componentWillMount() {
-        console.log(888,this.props)
+        console.log(888, this.props);
     }
 
     render() {
         return (
-            <div className='commonHeader'>
+            <div className="commonHeader">
                 <div className="left">
-               <i className="iconfont">&#xe606;</i>
+                    <i className="iconfont">&#xe606;</i>
                 </div>
                 {/* <Button type="primary">primary</Button> */}
                 <div className="center">{this.props.headerData.title}</div>
-                <div className="right"></div>
+                <div className="right" />
             </div>
-        )
+        );
     }
 }
 
 export default CommonHeader;
-
 
 // const ButtonExample = () => (
 //   <WingBlank>
