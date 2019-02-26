@@ -1,7 +1,7 @@
 .commonHeader {
     display: flex;
     justify-content: center;
-    height: 45px;
+    height: 82px;
     line-height: 45px;
     background: #fff;
     // font-size: 20px;
@@ -12,19 +12,37 @@
 
     .left {
         color: blue;
-        position: absolute;
-        left: 15px;
-        top: 0;
-        bottom: 0;
-        width: 50px;
+        // position: absolute;
+        // left: 15px;
+        // top: 0;
+        // bottom: 0;
+        width: auto;
         text-align: left;
         display: flex;
         align-items: center;
+        height: 60px;
+        margin-top: 11px;
+        padding-left: 20px;
     }
 
-    .center {
-        font-size: 17px;
-        color: #5C49B2;
+    .right {
+        // font-size: 17px;
+        // color: #5C49B2;
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        span {
+            font-size: 16px;
+            color: #333;
+            margin: 0 20px;
+            cursor: pointer;
+            display: inline-block;
+
+            &.on {
+                color: #233586;
+            }
+        }
 
     }
 

@@ -1,65 +1,87 @@
 import React, { Component } from 'react';
 import './commonHeader.scss';
 import { Button } from 'antd-mobile';
+import { HashRouter, Route, withRouter } from 'react-router-dom';
 
-class CommonHeader extends Component {
+class CommonHeader extends React.Component {
     // constructor(props) {
     //     super(props);
     // }
 
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            indexVal: 0,
+            headerData: [
+                {
+                    name: '首页',
+                    route: '/'
+                },
+                {
+                    name: '产品中心',
+                    route: '/productCenter'
+                },
+                {
+                    name: '解决方案',
+                    route: '/'
+                }
+            ]
+        };
+    }
+
     componentWillMount() {
-        console.log(888, this.props);
+        console.log(888, this.state.headerData, this.props.location.pathname);
+        this.state.headerData.forEach((val, key) => {
+            console.log(111, val, key);
+            console.log(333, val.route, this.props.location.pathname);
+            if (val.route === this.props.location.pathname) {
+                console.log(222, val.route, this.props.location.pathname);
+                this.setState({ indexVal: key });
+            }
+        });
+    }
+
+    checkList(list, index) {
+        this.setState({
+            indexVal: index
+        });
+        console.log(111, list.route);
+        // return;
+
+        this.props.history.push(list.route);
+        // this.context.router.history.push({
+        //     pathname: list.route
+        //     // query: {
+        //     // id: 3
+        //     // }
+        // });
     }
 
     render() {
         return (
             <div className="commonHeader">
-                <div className="left">
-                    <i className="iconfont">&#xe606;</i>
-                </div>
+                <img
+                    className="left"
+                    src={require('../../assets/image/home/logo.png')}
+                    alt=""
+                />
                 {/* <Button type="primary">primary</Button> */}
-                <div className="center">{this.props.headerData.title}</div>
-                <div className="right" />
+                <div className="right">
+                    {this.state.headerData.map((data, index) => (
+                        <span
+                            className={
+                                this.state.indexVal === index ? 'on' : ''
+                            }
+                            onClick={this.checkList.bind(this, data, index)}
+                            key={index}
+                        >
+                            {data.name}
+                        </span>
+                    ))}
+                </div>
             </div>
         );
     }
 }
 
-export default CommonHeader;
-
-// const ButtonExample = () => (
-//   <WingBlank>
-//     <Button>default</Button><WhiteSpace />
-//     <Button disabled>default disabled</Button><WhiteSpace />
-
-//     <Button type="primary">primary</Button><WhiteSpace />
-//     <Button type="primary" disabled>primary disabled</Button><WhiteSpace />
-
-//     <Button type="warning">warning</Button><WhiteSpace />
-//     <Button type="warning" disabled>warning disabled</Button><WhiteSpace />
-
-//     <Button loading>loading button</Button><WhiteSpace />
-//     <Button icon="check-circle-o">with icon</Button><WhiteSpace />
-//     <Button icon={<img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" alt="" />}>with custom icon</Button><WhiteSpace />
-//     <Button icon="check-circle-o" inline size="small" style={{ marginRight: '4px' }}>with icon and inline</Button>
-//     <Button icon="check-circle-o" inline size="small">with icon and inline</Button>
-//     <WhiteSpace />
-
-//     {/* <Button activeStyle={false}>无点击反馈</Button><WhiteSpace /> */}
-//     {/* <Button activeStyle={{ backgroundColor: 'red' }}>custom feedback style</Button><WhiteSpace /> */}
-
-//     <WhiteSpace />
-//     <Button type="primary" inline style={{ marginRight: '4px' }}>inline primary</Button>
-//     {/* use `am-button-borderfix`. because Multiple buttons inline arranged, the last one border-right may not display */}
-//     <Button type="ghost" inline style={{ marginRight: '4px' }} className="am-button-borderfix">inline ghost</Button>
-
-//     <WhiteSpace />
-//     <Button type="primary" inline size="small" style={{ marginRight: '4px' }}>primary</Button>
-//     <Button type="primary" inline size="small" disabled>primary disabled</Button>
-//     <WhiteSpace />
-//     <Button type="ghost" inline size="small" style={{ marginRight: '4px' }}>ghost</Button>
-//     {/* use `am-button-borderfix`. because Multiple buttons inline arranged, the last one border-right may not display */}
-//     <Button type="ghost" inline size="small" className="am-button-borderfix" disabled>ghost disabled</Button>
-//   </WingBlank>
-// );
-// ReactDOM.render(<ButtonExample />, mountNode);
+export default withRouter(CommonHeader);

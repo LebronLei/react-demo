@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 import styles from './style/index.js';
 import { HashRouter, Route } from 'react-router-dom';
 
 import CommonHeader from './components/header/commonHeader';
 import CommonFooter from './components/footer/commonFooter';
-// import friendMessage from './pages/userCenter/friendMessage';
+// import friendMessage from './pages/userCenter/message/friendMessage';
 
 // const setStyle = {
 //     fontSize: '40px',
@@ -40,12 +40,7 @@ class App extends React.Component {
     //     console.log(1111)
     // }
 
-    componentWillMount() {
-        console.log(222);
-        setTimeout(() => {
-            console.log(333, styles);
-        }, 1111);
-    }
+    componentWillMount() {}
 
     clickOne() {
         console.log('click one');
@@ -54,14 +49,19 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <CommonHeader headerData={this.state.headerData} />
+                {/* <CommonHeader headerData={this.state.headerData} /> */}
+                <CommonHeader />
                 <header className="App-header">
                     {/* <img src={logo} className="App-logo" alt="logo" /> */}
+                    <img
+                        className="banner"
+                        src={require('./assets/image/home/banner.png')}
+                        alt=""
+                    />
                     <p onClick={this.clickOne} style={styles.Header}>
-                        Edit <code>src/App.js</code> and save to reload.
+                        5 Edit <code>src/App.js</code> and save to reload.
                     </p>
                     <a href="#/friendMessage/">A标签方式跳转</a>
-
                     <div
                         onClick={() =>
                             this.props.history.push({
@@ -74,6 +74,12 @@ class App extends React.Component {
                     >
                         push-query方式跳转
                     </div>
+                    {/* <HashRouter>
+                        <Route
+                            path="/friendMessage"
+                            component={friendMessage}
+                        />
+                    </HashRouter> */}
 
                     <div
                         onClick={() =>
@@ -85,10 +91,6 @@ class App extends React.Component {
                     >
                         push-state方式跳转
                     </div>
-
-                    {/* <HashRouter> */}
-                    {/* <Route path='/friendMessage' component={friendMessage}></Route> */}
-                    {/* </HashRouter> */}
                     {/* <a
             className="App-link"
             href="https://reactjs.org"

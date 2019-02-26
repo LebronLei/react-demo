@@ -3,9 +3,9 @@ import './commonFooter.scss';
 import { Button} from 'antd-mobile';
 
 class commonFooter extends Component{
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     componentWillMount() {
         console.log(888)
