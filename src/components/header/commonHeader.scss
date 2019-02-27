@@ -32,16 +32,16 @@
         display: flex;
         align-items: center;
 
-        span {
+        a {
             font-size: 16px;
             color: #333;
             margin: 0 20px;
             cursor: pointer;
             display: inline-block;
 
-            &.on {
-                color: #233586;
-            }
+            // &.on {
+            //     color: #233586;
+            // }
         }
 
     }

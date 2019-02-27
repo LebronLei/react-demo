@@ -9,6 +9,7 @@ import AllTask from '../pages/userCenter/allTask/allTask';
 
 import ProductCenter from '../pages/productCenter';
 import Home from '../pages/home';
+import Solution from '../pages/solution';
 
 // import CommonHeader from '../components/header/commonHeader';
 
@@ -21,6 +22,7 @@ const BasicRoute = () => (
             <Route exact path="/friendMessage" component={FriendMessage} />
             <Route exact path="/allTask" component={AllTask} />
             <Route exact path="/productCenter" component={ProductCenter} />
+            <Route exact path="/solution" component={Solution} />
         </Switch>
     </HashRouter>
 );
