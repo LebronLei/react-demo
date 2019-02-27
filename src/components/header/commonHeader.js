@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './commonHeader.scss';
 import { Button } from 'antd-mobile';
-import { HashRouter, Route, withRouter } from 'react-router-dom';
+import { HashRouter, Route, withRouter, NavLink } from 'react-router-dom';
+
+const selectedStyle = {
+    backgroundColor: 'white',
+    color: 'cyan'
+};
 
 class CommonHeader extends React.Component {
     // constructor(props) {
@@ -15,7 +20,7 @@ class CommonHeader extends React.Component {
             headerData: [
                 {
                     name: '首页',
-                    route: '/'
+                    route: '/home'
                 },
                 {
                     name: '产品中心',
@@ -23,7 +28,7 @@ class CommonHeader extends React.Component {
                 },
                 {
                     name: '解决方案',
-                    route: '/'
+                    route: '/allTask'
                 }
             ]
         };
@@ -36,7 +41,9 @@ class CommonHeader extends React.Component {
             console.log(333, val.route, this.props.location.pathname);
             if (val.route === this.props.location.pathname) {
                 console.log(222, val.route, this.props.location.pathname);
-                this.setState({ indexVal: key });
+                this.setState({
+                    indexVal: key
+                });
             }
         });
     }
@@ -46,7 +53,6 @@ class CommonHeader extends React.Component {
             indexVal: index
         });
         console.log(111, list.route);
-        // return;
 
         this.props.history.push(list.route);
         // this.context.router.history.push({
@@ -68,15 +74,22 @@ class CommonHeader extends React.Component {
                 {/* <Button type="primary">primary</Button> */}
                 <div className="right">
                     {this.state.headerData.map((data, index) => (
-                        <span
-                            className={
-                                this.state.indexVal === index ? 'on' : ''
-                            }
-                            onClick={this.checkList.bind(this, data, index)}
+                        <NavLink
+                            to={data.route}
+                            activeStyle={selectedStyle}
                             key={index}
                         >
                             {data.name}
-                        </span>
+                        </NavLink>
+                        // <span
+                        //     className={
+                        //         this.state.indexVal === index ? 'on' : ''
+                        //     }
+                        //     onClick={this.checkList.bind(this, data, index)}
+                        //     key={index}
+                        // >
+                        //     {data.name}
+                        // </span>
                     ))}
                 </div>
             </div>
