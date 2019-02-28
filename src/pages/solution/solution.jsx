@@ -4,17 +4,20 @@ import { Button } from 'antd-mobile';
 import { findDOMNode } from 'react-dom';
 
 import CommonHeader from '../../components/header/commonHeader';
+
 class solution extends React.Component {
     constructor(props) {
         super(props);
         // return { userInput: '' };
         this.state = {
-            userInput: 'test'
+            userInput: 'test',
+            value: ''
         };
     }
     // 只会在装载之前调用一次，在 render 之前调用，你可以在这个方法里面调用 setState 改变状态，并且不会导致额外调用一次 render
     componentWillMount() {
         console.log(111);
+        this.setState({ value: 'hello' });
     }
 
     // 只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 ReactDOM.findDOMNode(this) 获取到组件的 DOM 节点。
@@ -30,6 +33,10 @@ class solution extends React.Component {
         this.setState({ userInput: '' }, () => {
             this.refs.input.focus();
         });
+    }
+
+    handleChange(event) {
+        this.setState({ value: event.target.value });
     }
 
     render() {
@@ -52,8 +59,14 @@ class solution extends React.Component {
                     value={this.state.userInput}
                     onChange={this.clickInput.bind(this)}
                 />
-                <br />
                 {this.state.userInput}
+                <hr />
+                <input
+                    type="text"
+                    value={this.state.value}
+                    onChange={this.handleChange.bind(this)}
+                />
+                {this.state.value}
             </div>
         );
     }
