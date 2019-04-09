@@ -1,2 +1,2 @@
-import solution from './solution'
-export default solution
+import solution from './solution';
+export default solution;

@@ -1,16 +1,7 @@
-import React, {
-    Component
-} from 'react';
+import React, { Component } from 'react';
 import './commonHeader.scss';
-import {
-    Button
-} from 'antd-mobile';
-import {
-    HashRouter,
-    Route,
-    withRouter,
-    NavLink
-} from 'react-router-dom';
+import { Button } from 'antd-mobile';
+import { HashRouter, Route, withRouter, NavLink } from 'react-router-dom';
 
 const selectedStyle = {
     backgroundColor: 'white',
@@ -26,7 +17,8 @@ class CommonHeader extends React.Component {
         super(props, context);
         this.state = {
             indexVal: 0,
-            headerData: [{
+            headerData: [
+                {
                     name: '首页',
                     route: '/home'
                 },
@@ -67,45 +59,41 @@ class CommonHeader extends React.Component {
     }
 
     render() {
-        return ( <
-            div className = "commonHeader" >
-            <
-            img className = "left"
-            src = {
-                require('../../assets/image/home/logo.png')
-            }
-            alt = "" /
-            >
-            {
-                /* <Button type="primary">primary</Button> */
-            } <
-            div className = "right" > {
-                this.state.headerData.map((data, index) => ( <
-                    NavLink to = {
-                        data.route
-                    }
-                    activeStyle = {
-                        selectedStyle
-                    }
-                    key = {
-                        index
-                    } > {
-                        data.name
-                    } <
-                    /NavLink>
-                    // <span
-                    //     className={
-                    //         this.state.indexVal === index ? 'on' : ''
-                    //     }
-                    //     onClick={this.checkList.bind(this, data, index)}
-                    //     key={index}
-                    // >
-                    //     {data.name}
-                    // </span>
-                ))
-            } <
-            /div> < /
-            div >
+        return (
+            <div className="commonHeader">
+                <img
+                    className="left"
+                    src={require('../../assets/image/home/logo.png')}
+                    alt=""
+                />
+                {/* <div className="left">
+                    <p className="zh">张璐璐个人作品设计</p>
+                    <p className="en">PERSONAL WORK</p>
+                </div> */}
+                {/* <Button type="primary">primary</Button> */}{' '}
+                <div className="right">
+                    {' '}
+                    {this.state.headerData.map((data, index) => (
+                        <NavLink
+                            to={data.route}
+                            activeStyle={selectedStyle}
+                            key={index}
+                        >
+                            {' '}
+                            {data.name}{' '}
+                        </NavLink>
+                        // <span
+                        //     className={
+                        //         this.state.indexVal === index ? 'on' : ''
+                        //     }
+                        //     onClick={this.checkList.bind(this, data, index)}
+                        //     key={index}
+                        // >
+                        //     {data.name}
+                        // </span>
+                    ))}{' '}
+                </div>{' '}
+            </div>
         );
     }
 }
